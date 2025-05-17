@@ -17,7 +17,7 @@ function ParentClientComponent({userId}: ParentClientComponentProps) {
       }, [])
 
   return (
-    <div>
+    <div className='px-12'>
         <AddFinance setFinancesData={setFinancesData}/>
         <DisplayFinances financeData={financeData} setFinancesData={setFinancesData}/>
     </div>
