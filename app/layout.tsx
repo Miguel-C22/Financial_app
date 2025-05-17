@@ -24,8 +24,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={geistSans.className} suppressHydrationWarning>
-      <body className="h-screen bg-background min-h-screen text-foreground text-black" data-theme="light">
-      <div className="flex flex-col m-auto gap-20  h-full max-w-6xl relative">
+    <body className="min-h-screen bg-background text-foreground text-black" data-theme="light">
+    <div className="relative flex flex-col gap-20 px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 max-w-6xl mx-auto w-full pb-18">
           {children}
          </div>
       </body>
