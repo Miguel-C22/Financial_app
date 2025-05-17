@@ -6,3 +6,8 @@
   --color-primary: purple;
   --color-secondary: teal;
 }
+
+.modal {
+  backdrop-filter: none !important;
+  background-color: rgba(100, 100, 100, 0.718) !important;
+}
