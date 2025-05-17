@@ -31,6 +31,8 @@ export default async function ProtectedPage() {
       <div>
         <h2 className="font-bold text-2xl mb-4">Next steps</h2>
       </div>
+
+      Go back to the <a href="/">home page</a>
     </div>
   );
 }
