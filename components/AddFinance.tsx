@@ -48,7 +48,7 @@ function AddFinance({setFinancesData}: AddFinanceProps) {
   return (
     <div>
         <button 
-            className="btn btn-success w-12 h-12 rounded-full p-0 flex items-center justify-center absolute bottom-8 right-12 text-white"
+            className="btn btn-success w-12 h-12 rounded-full p-0 flex items-center justify-center absolute bottom-22 right-12 text-white"
             onClick={() => (document.getElementById('my_modal_3') as HTMLDialogElement)?.showModal()}>
             {plusIcon}
         </button>
@@ -74,7 +74,7 @@ function AddFinance({setFinancesData}: AddFinanceProps) {
 
               <input
                 type="number"
-                className="input validator w-full"
+                className="input w-full"
                 required
                 placeholder="Price"
                 min="1"

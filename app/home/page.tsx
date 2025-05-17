@@ -2,8 +2,6 @@
 
 import React from 'react'
 import Header from '@/components/Header'
-import AddFinance from '@/components/AddFinance'
-import DisplayFinances from '@/components/DisplayFinances'
 import { createClient } from '@/utils/supabase/server'
 import ParentClientComponent from '@/components/ParentClientComponent';
 
