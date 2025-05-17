@@ -23,7 +23,7 @@ export const signUpAction = async (formData: FormData) => {
     email,
     password,
     options: {
-      emailRedirectTo: `/home`,
+      emailRedirectTo: `${origin}/home`,
     },
   });
 
