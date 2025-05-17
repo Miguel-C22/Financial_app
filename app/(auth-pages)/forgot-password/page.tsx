@@ -1,37 +1,45 @@
 import { forgotPasswordAction } from "@/app/actions";
 import { FormMessage, Message } from "@/components/form-message";
-import { SubmitButton } from "@/components/submit-button";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
 import Link from "next/link";
-import { SmtpMessage } from "../smtp-message";
 
-export default async function ForgotPassword(props: {
-  searchParams: Promise<Message>;
-}) {
+export default async function ForgotPassword(props: { searchParams: Promise<Message> }) {
   const searchParams = await props.searchParams;
+
   return (
-    <>
-      <form className="flex-1 flex flex-col w-full gap-2 text-foreground [&>input]:mb-6 min-w-64 max-w-64 mx-auto">
-        <div>
-          <h1 className="text-2xl font-medium">Reset Password</h1>
-          <p className="text-sm text-secondary-foreground">
-            Already have an account?{" "}
-            <Link className="text-primary underline" href="/sign-in">
-              Sign in
-            </Link>
-          </p>
-        </div>
-        <div className="flex flex-col gap-2 [&>input]:mb-3 mt-8">
-          <Label htmlFor="email">Email</Label>
-          <Input name="email" placeholder="you@example.com" required />
-          <SubmitButton formAction={forgotPasswordAction}>
+    <div className="flex min-h-screen items-center justify-center px-4">
+      <form className="w-full max-w-md bg-white dark:bg-base-100 rounded-xl shadow-lg p-8 flex flex-col gap-6">
+        <h1 className="text-2xl font-medium text-center">Reset Password</h1>
+
+        <p className="text-sm text-center text-foreground">
+          Already have an account?{" "}
+          <Link href="/sign-in" className="text-primary font-medium underline">
+            Sign in
+          </Link>
+        </p>
+
+        <div className="flex flex-col gap-4 mt-4">
+          <label htmlFor="email" className="font-medium">
+            Email
+          </label>
+          <input
+            type="email"
+            name="email"
+            placeholder="you@example.com"
+            required
+            className="input input-bordered w-full"
+          />
+
+          <button
+            type="submit"
+            formAction={forgotPasswordAction}
+            className="btn btn-primary mt-2 text-white"
+          >
             Reset Password
-          </SubmitButton>
+          </button>
+
           <FormMessage message={searchParams} />
         </div>
       </form>
-      <SmtpMessage />
-    </>
+    </div>
   );
 }
