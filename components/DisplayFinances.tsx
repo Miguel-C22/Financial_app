@@ -37,7 +37,7 @@ function DisplayFinances({financeData, setFinancesData}: DisplayFinancesProps) {
     }
 
   return (
-    <div className="z-0 w-full h-[calc(100vh-180px)] overflow-y-auto pt-2">
+    <div className="z-0 w-full h-[calc(100vh-200px)] overflow-y-auto pt-2">
        {financeData.length > 0 ? renderFinances() : "No finances found"}
     </div>
   )

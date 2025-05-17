@@ -48,7 +48,7 @@ function AddFinance({setFinancesData}: AddFinanceProps) {
   return (
     <div>
         <button 
-            className="z-2 btn btn-success w-12 h-12 rounded-full p-0 flex items-center justify-center absolute bottom-0 right-26 text-white"
+            className="z-2 btn btn-success w-12 h-12 rounded-full p-0 flex items-center justify-center absolute bottom-0 right-12 text-white"
             onClick={() => (document.getElementById('my_modal_3') as HTMLDialogElement)?.showModal()}>
             {plusIcon}
         </button>
