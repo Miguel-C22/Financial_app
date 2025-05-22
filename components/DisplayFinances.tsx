@@ -5,13 +5,17 @@ import { nextPayDay } from '@/utils/daysUntilPayment'
 
 import React from 'react'
 import RemoveFinanceBtn from './RemoveFinanceBtn'
+import EditFinanceBtn from './EditFinanceBtn'
 
 interface DisplayFinancesProps {
     financeData: Finance[]
     setFinancesData: React.Dispatch<React.SetStateAction<Finance[]>>;
+    setOpenDrawer: React.Dispatch<React.SetStateAction<boolean>>;
+    setSelectedFinancesData: React.Dispatch<React.SetStateAction<Finance[]>>;
+
 }
 
-function DisplayFinances({financeData, setFinancesData}: DisplayFinancesProps) {
+function DisplayFinances({financeData, setFinancesData, setOpenDrawer, setSelectedFinancesData}: DisplayFinancesProps) {
 
     const renderFinances = () => {
         return financeData.map((finance) => (
@@ -32,6 +36,7 @@ function DisplayFinances({financeData, setFinancesData}: DisplayFinancesProps) {
                 </div>
               </div>
               <RemoveFinanceBtn setFinancesData={setFinancesData} financeId={finance.id}/>
+              <EditFinanceBtn financeData={finance} setOpenDrawer={setOpenDrawer} setSelectedFinancesData={setSelectedFinancesData}/>
             </div>
         ));
     }

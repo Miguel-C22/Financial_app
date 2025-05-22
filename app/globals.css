@@ -1,13 +1,8 @@
 @import "tailwindcss";
-@plugin "daisyui";
+@plugin "daisyui" {
+  themes: light --default;
+}
 @plugin "daisyui/theme" {
-  name: "retro";
-  default: true;
   --color-primary: purple;
   --color-secondary: teal;
-}
-
-.modal {
-  backdrop-filter: none !important;
-  background-color: rgba(100, 100, 100, 0.718) !important;
 }

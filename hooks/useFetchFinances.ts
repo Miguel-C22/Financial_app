@@ -1,6 +1,6 @@
+import React, { useState } from 'react'
 import { Finance } from '@/interfaces/Finance'
 import { getFinances } from '@/utils/apiCalls/getFinances'
-import React, { useState } from 'react'
 
 interface UseFetchNewDataProps {
     userId: string
