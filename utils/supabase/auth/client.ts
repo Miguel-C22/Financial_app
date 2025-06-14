@@ -1,10 +1,7 @@
-
 import { createClient } from "@/utils/supabase/client";
 import { useState } from "react";
 
 import { User } from "@supabase/supabase-js";
-
-
 
 function getAuth() {
   const { auth } = createClient();
@@ -21,9 +18,7 @@ export function useGetUser() {
     const shouldUpdate = sessionUser?.updated_at !== user?.updated_at;
     if (shouldUpdate) {
       if (sessionUser) {
-        const user = await fetch("/api/get-user").then((res) =>
-          res.json()
-        );
+        const user = await fetch("/api/get-user").then((res) => res.json());
         setUser(user);
       } else {
         setUser(null);

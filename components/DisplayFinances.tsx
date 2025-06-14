@@ -1,51 +1,69 @@
-'use client'
+"use client";
 
-import { Finance } from '@/interfaces/Finance'
-import { nextPayDay } from '@/utils/daysUntilPayment'
+import { Finance } from "@/interfaces/Finance";
+import { nextPayDay } from "@/utils/daysUntilPayment";
 
-import React from 'react'
-import RemoveFinanceBtn from './RemoveFinanceBtn'
-import EditFinanceBtn from './EditFinanceBtn'
+import React from "react";
+import RemoveFinanceBtn from "./RemoveFinanceBtn";
+import EditFinanceBtn from "./EditFinanceBtn";
 
 interface DisplayFinancesProps {
-    financeData: Finance[]
-    setFinancesData: React.Dispatch<React.SetStateAction<Finance[]>>;
-    setOpenDrawer: React.Dispatch<React.SetStateAction<boolean>>;
-    setSelectedFinancesData: React.Dispatch<React.SetStateAction<Finance[]>>;
-
+  financeData: Finance[];
+  setFinancesData: React.Dispatch<React.SetStateAction<Finance[]>>;
+  setOpenDrawer: React.Dispatch<React.SetStateAction<boolean>>;
+  setSelectedFinancesData: React.Dispatch<React.SetStateAction<Finance[]>>;
 }
 
-function DisplayFinances({financeData, setFinancesData, setOpenDrawer, setSelectedFinancesData}: DisplayFinancesProps) {
+function DisplayFinances({
+  financeData,
+  setFinancesData,
+  setOpenDrawer,
+  setSelectedFinancesData,
+}: DisplayFinancesProps) {
+  const renderFinances = () => {
+    return financeData.map((finance) => (
+      <div key={finance.id} className="relative pb-4">
+        <div className="collapse bg-white border border-gray-200 rounded-lg shadow-sm">
+          <input type="radio" name="finance-accordion" defaultChecked />
 
-    const renderFinances = () => {
-        return financeData.map((finance) => (
-            <div key={finance.id} className="relative pb-4">
-              <div className="collapse bg-white border border-gray-200 rounded-lg shadow-sm">
-                <input type="radio" name="finance-accordion" defaultChecked />
-                
-                <div className="relative collapse-title flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 p-4">
-                  <div>
-                    <p className="text-lg font-semibold text-gray-800">{finance.payment_name}</p>
-                    <p className="text-sm text-gray-500">${(finance.price  / 100).toFixed(2)}</p>
-                  </div>
-                  <div className="text-sm pb-4">{nextPayDay(finance.payment_day)} </div>
-                </div>
-          
-                <div className="collapse-content px-4 pb-4 text-gray-700 text-sm">
-                  {finance.info.length > 0 ? finance.info : `No extra info for ${finance.payment_name}`}
-                </div>
-              </div>
-              <RemoveFinanceBtn setFinancesData={setFinancesData} financeId={finance.id}/>
-              <EditFinanceBtn financeData={finance} setOpenDrawer={setOpenDrawer} setSelectedFinancesData={setSelectedFinancesData}/>
+          <div className="relative collapse-title flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 p-4">
+            <div>
+              <p className="text-lg font-semibold text-gray-800">
+                {finance.payment_name}
+              </p>
+              <p className="text-sm text-gray-500">
+                ${(finance.price / 100).toFixed(2)}
+              </p>
             </div>
-        ));
-    }
+            <div className="text-sm pb-4">
+              {nextPayDay(finance.payment_day)}{" "}
+            </div>
+          </div>
+
+          <div className="collapse-content px-4 pb-4 text-gray-700 text-sm">
+            {finance.info.length > 0
+              ? finance.info
+              : `No extra info for ${finance.payment_name}`}
+          </div>
+        </div>
+        <RemoveFinanceBtn
+          setFinancesData={setFinancesData}
+          financeId={finance.id}
+        />
+        <EditFinanceBtn
+          financeData={finance}
+          setOpenDrawer={setOpenDrawer}
+          setSelectedFinancesData={setSelectedFinancesData}
+        />
+      </div>
+    ));
+  };
 
   return (
     <div className="z-0 w-full h-[calc(100vh-200px)] overflow-y-auto pt-2">
-       {financeData.length > 0 ? renderFinances() : "No finances found"}
+      {financeData.length > 0 ? renderFinances() : "No finances found"}
     </div>
-  )
+  );
 }
 
-export default DisplayFinances
+export default DisplayFinances;

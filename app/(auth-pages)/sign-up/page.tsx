@@ -20,11 +20,14 @@ export default async function Signup(props: {
         <h1 className="text-2xl font-medium text-center">Sign up</h1>
         <p className="text-sm text-center text-foreground">
           Already have an account?{" "}
-          <Link className="text-foreground font-medium underline" href="/sign-in">
+          <Link
+            className="text-foreground font-medium underline"
+            href="/sign-in"
+          >
             Sign in
           </Link>
         </p>
-  
+
         <div className="flex flex-col gap-4 mt-4">
           <label htmlFor="email">Email</label>
           <input
@@ -33,7 +36,7 @@ export default async function Signup(props: {
             required
             className="input input-bordered w-full"
           />
-  
+
           <label htmlFor="password">Password</label>
           <input
             type="password"
@@ -43,7 +46,7 @@ export default async function Signup(props: {
             required
             className="input input-bordered w-full"
           />
-  
+
           <button
             type="submit"
             formAction={signUpAction}
@@ -51,7 +54,7 @@ export default async function Signup(props: {
           >
             Sign up
           </button>
-  
+
           <FormMessage message={searchParams} />
         </div>
       </form>

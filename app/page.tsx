@@ -8,21 +8,15 @@ export default async function Home() {
     <main className="flex min-h-screen items-center justify-center flex-col gap-8 py-12">
       <div className="flex flex-row flex-wrap justify-center gap-2 mb-2">
         <h1 className="text-3xl font-bold text-center text-gray-800">
-          Your Monthly Budget, Made Easy. 
+          Your Monthly Budget, Made Easy.
         </h1>
-       {moneyIcon}
+        {moneyIcon}
       </div>
       <div className="flex flex-col gap-4">
-        <Link
-          href="/sign-in"
-          className={buttonLinkStyle}
-        >
+        <Link href="/sign-in" className={buttonLinkStyle}>
           Sign In
         </Link>
-        <Link
-          href="/sign-up"
-          className={buttonLinkStyle}
-        >
+        <Link href="/sign-up" className={buttonLinkStyle}>
           Sign Up
         </Link>
       </div>
