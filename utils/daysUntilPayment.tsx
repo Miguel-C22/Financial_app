@@ -1,11 +1,11 @@
 export const nextPayDay = (payDay: string) => {
-  const day = new Date(payDay).getDate();
+  const day = new Date(payDay).getDate() + 1;
 
   const today = new Date();
   let nextPayment = new Date(today.getFullYear(), today.getMonth(), day);
 
   if (today.getDate() >= day) {
-    nextPayment = new Date(today.getFullYear(), today.getMonth(), day);
+    nextPayment = new Date(today.getFullYear(), today.getMonth() + 1, day);
   }
 
   const msInDay = 1000 * 60 * 60 * 24;
